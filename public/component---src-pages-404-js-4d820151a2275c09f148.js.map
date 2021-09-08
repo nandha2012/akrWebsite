@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://gatsby-mui-starter/./src/pages/404.js"],"names":["ErrorPage"],"mappings":"wLAEe,SAASA,IACtB,OAAO","file":"component---src-pages-404-js-4d820151a2275c09f148.js","sourcesContent":["import React from \"react\"\n\nexport default function ErrorPage() {\n  return <div>404 Not Found</div>\n}\n"],"sourceRoot":""}
