@@ -169,7 +169,7 @@ export default function Navbar() {
           <Tab
             className={`${classes.tab}`}
             component={Link}
-            to="/login"
+            to="/"
             label="Home"
             aria-label="Sign In Button"
             variant="h6"
@@ -181,7 +181,7 @@ export default function Navbar() {
           <Tab
             className={`${classes.tab}`}
             component={Link}
-            to="/login"
+            to="/"
             label="products"
             aria-label="Sign In Button"
             variant="h6"
@@ -193,7 +193,7 @@ export default function Navbar() {
           <Tab
             className={`${classes.tab}`}
             component={Link}
-            to="/login"
+            to="/"
             label="certificates"
             aria-label="Sign In Button"
             variant="h6"
