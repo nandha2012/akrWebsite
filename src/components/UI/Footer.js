@@ -123,63 +123,17 @@ export default function Footer() {
               </li>
             </ul>
           </Grid>
-          <Grid item xs={6} sm={8} md={4}>
-            <Typography variant="h6" marked="left" gutterBottom>
-              Language
-            </Typography>
-            <TextField
-              select
-              SelectProps={{
-                native: true,
-              }}
-              className={classes.language}
-            >
-              {LANGUAGES.map(language => (
-                <option value={language.code} key={language.code}>
-                  {language.name}
-                </option>
-              ))}
-            </TextField>
-          </Grid>
-          <Grid item>
-            <Typography variant="caption">
-              {"Icons made by "}
-              <MuiLink
-                href="https://www.freepik.com"
-                rel="sponsored"
-                title="Freepik"
-              >
-                Freepik
-              </MuiLink>
-              {" from "}
-              <MuiLink
-                href="https://www.flaticon.com"
-                rel="sponsored"
-                title="Flaticon"
-              >
-                www.flaticon.com
-              </MuiLink>
-              {" is licensed by "}
-              <MuiLink
-                href="https://creativecommons.org/licenses/by/3.0/"
-                title="Creative Commons BY 3.0"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                CC 3.0 BY
-              </MuiLink>
-            </Typography>
-          </Grid>
+
           <Grid item xs={12}>
             <Typography variant="caption">
-              {"Theme ported by "}
+              {"Site ported by "}
               <MuiLink
                 href="https://snappywebdesign.net"
                 rel="tag"
                 title="Snappy Web Design"
                 target="_blank"
               >
-                Snappy Web Design
+                AkR ERP Department
               </MuiLink>
             </Typography>
           </Grid>
