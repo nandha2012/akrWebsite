@@ -82,6 +82,12 @@ const useStyles = makeStyles(theme => ({
         opacity: 0.95,
         padding: '.25em 1em',
     },
+    CompanyName: {
+        color: theme.palette.success.light,
+        fontFamily: 'Arial Helvetica sans-serif',
+        fontSize: '35px',
+        letterSpacing: '3px',
+    },
 }))
 
 export default function Navbar() {
@@ -249,7 +255,8 @@ export default function Navbar() {
                         underline="none"
                         className={classes.title}
                     >
-                        AKR Industries
+                        <span className={classes.CompanyName}> AKR </span>{' '}
+                        Industries
                     </MuiLink>
                     {matchesXS ? drawer : tabs}
                 </Toolbar>
