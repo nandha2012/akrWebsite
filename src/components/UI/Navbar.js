@@ -249,7 +249,7 @@ export default function Navbar() {
                         underline="none"
                         className={classes.title}
                     >
-                        AKR Textiles
+                        AKR Industries
                     </MuiLink>
                     {matchesXS ? drawer : tabs}
                 </Toolbar>
