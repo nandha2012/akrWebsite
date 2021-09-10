@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://muitemplate.netlify.app/sitemap/sitemap-index.xml
-Host: https://muitemplate.netlify.app
+Sitemap: https://akrtextile.com/sitemap/sitemap-index.xml
+Host: https://akrtextile.com
