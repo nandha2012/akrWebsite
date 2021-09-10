@@ -12,7 +12,7 @@ module.exports = {
         image: `default.jpg`,
         description: `Gatsby/Material-UI Template via Erp Akr`,
         author: `@nandha`,
-        siteUrl: `https://muitemplate.netlify.app`,
+        siteUrl: `https://akrtextile.com/`,
     },
 
     plugins: [

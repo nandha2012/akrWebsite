@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import AppBar from '@material-ui/core/AppBar'
+import { AppBar, Box } from '@material-ui/core'
 import { useTheme, makeStyles } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
 import Tabs from '@material-ui/core/Tabs'
@@ -14,7 +14,8 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import MenuIcon from '@material-ui/icons/Menu'
 import IconButton from '@material-ui/core/IconButton'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
-
+import logoBorder from '../../assets/images/akr_logo.png'
+import logoText from '../../assets/images/akr_font.png'
 const useStyles = makeStyles(theme => ({
     root: {
         color: theme.palette.common.white,
@@ -87,6 +88,30 @@ const useStyles = makeStyles(theme => ({
         fontFamily: 'Arial Helvetica sans-serif',
         fontSize: '35px',
         letterSpacing: '3px',
+    },
+    logoBorder: {
+        height: '35px',
+        [theme.breakpoints.up('md')]: {
+            height: '50px',
+        },
+    },
+    logoContainer: {
+        position: 'absolute',
+        left: '0',
+        top: '0',
+    },
+    logoText: {
+        position: 'absolute',
+        height: '20px',
+        top: '20px',
+        left: '130px',
+        [theme.breakpoints.up('md')]: {
+            position: 'relative',
+
+            left: '-100px',
+            top: '1px',
+            height: '30px',
+        },
     },
 }))
 
@@ -255,8 +280,13 @@ export default function Navbar() {
                         underline="none"
                         className={classes.title}
                     >
-                        <span className={classes.CompanyName}> AKR </span>{' '}
-                        Industries
+                        <Box className={classes.logoContainer}>
+                            <img
+                                src={logoBorder}
+                                className={classes.logoBorder}
+                            />
+                            <img src={logoText} className={classes.logoText} />
+                        </Box>
                     </MuiLink>
                     {matchesXS ? drawer : tabs}
                 </Toolbar>
