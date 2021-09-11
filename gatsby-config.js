@@ -28,6 +28,7 @@ module.exports = {
         },
         `gatsby-plugin-material-ui`,
         `gatsby-plugin-react-helmet`,
+        `gatsby-plugin-fontawesome-css`,
         {
             // resolve: `gatsby-plugin-google-fonts`,
             resolve: `gatsby-plugin-google-fonts-with-attributes`,

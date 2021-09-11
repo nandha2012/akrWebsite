@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
 import Typography from '../components/Utils/Typography'
 
-export default function TermsPage() {
+export default function BrandPage() {
     return (
         <Layout>
             <Container>
@@ -16,7 +16,7 @@ export default function TermsPage() {
                         marked="center"
                         align="center"
                     >
-                        Terms
+                        Brand page
                     </Typography>
                     <Typography
                         variant="body1"
@@ -24,7 +24,7 @@ export default function TermsPage() {
                         align="center"
                         style={{ height: '30vh' }}
                     >
-                        Theme Ported by <MuiLink href="#">Akrn</MuiLink>
+                        Theme Ported by <MuiLink href="#">Akr</MuiLink>
                     </Typography>
                 </Box>
             </Container>

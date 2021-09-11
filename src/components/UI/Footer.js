@@ -9,6 +9,12 @@ import TextField from '../Utils/TextField'
 import FacebookIcon from '../../assets/images/facebookIcon.png'
 import TwitterIcon from '../../assets/images/twitterIcon.png'
 import { Box, Divider } from '@material-ui/core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+    faMapMarkedAlt,
+    faEnvelopeOpenText,
+    faPhone,
+} from '@fortawesome/free-solid-svg-icons'
 
 function Copyright() {
     return (
@@ -33,7 +39,8 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
     },
     iconsWrapper: {
-        height: 120,
+        // height: 120,
+        paddingTop: theme.spacing(1),
     },
     icons: {
         display: 'flex',
@@ -69,6 +76,19 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         padding: theme.spacing(7),
     },
+    contentWrapper: {
+        display: 'flex',
+        padding: theme.spacing(1),
+    },
+    contentText: {
+        paddingLeft: theme.spacing(2),
+    },
+    footerHeading: {
+        '& .Typography-markedH6Left-37': {
+            width: '30%',
+            color: theme.palette.grey[500],
+        },
+    },
 }))
 
 export default function Footer() {
@@ -79,50 +99,99 @@ export default function Footer() {
             <Container className={classes.container}>
                 <Grid container spacing={5}>
                     <Grid item xs={6} sm={4} md={3}>
+                        <Typography
+                            variant="h6"
+                            marked="left"
+                            gutterBottom
+                            className={classes.footerHeading}
+                        >
+                            contact Details
+                        </Typography>
                         <Grid
                             container
-                            direction="column"
-                            justify="flex-end"
                             className={classes.iconsWrapper}
-                            spacing={2}
+                            spacing={1}
                         >
-                            <Grid item className={classes.icons}>
-                                <a
-                                    href="https://snappywebdesign.net/"
-                                    className={classes.icon}
-                                >
-                                    <img src={FacebookIcon} alt="Facebook" />
-                                </a>
-                                <a
-                                    href="https://twitter.com/snappy_web"
-                                    className={classes.icon}
-                                >
-                                    <img src={TwitterIcon} alt="Twitter" />
-                                </a>
+                            <Grid item className={classes.icons} xs={12}>
+                                <Box className={classes.contentWrapper}>
+                                    <FontAwesomeIcon icon={faPhone} size="1x" />
+                                    <Typography className={classes.contentText}>
+                                        0421-6647777
+                                    </Typography>
+                                </Box>
                             </Grid>
-                            <Grid item>
-                                <Copyright />
+                            <Grid item xs={12}>
+                                <Box className={classes.contentWrapper}>
+                                    <FontAwesomeIcon
+                                        icon={faEnvelopeOpenText}
+                                        size="1x"
+                                    />
+                                    <Typography className={classes.contentText}>
+                                        info@akrind.com
+                                    </Typography>
+                                </Box>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Box className={classes.contentWrapper}>
+                                    <FontAwesomeIcon
+                                        icon={faMapMarkedAlt}
+                                        size="1x"
+                                    />
+                                    <Typography className={classes.contentText}>
+                                        AKR Industries <br /> 2/385 G,
+                                        Mummoorthy Nagar,P.N.Road, <br />
+                                        Tirupur - 641 602
+                                        <br />
+                                        Tamilnadu, India
+                                    </Typography>
+                                </Box>
                             </Grid>
                         </Grid>
                     </Grid>
                     <Grid item xs={12} sm={4} md={2}>
-                        <Typography variant="h6" marked="left" gutterBottom>
+                        <Typography
+                            variant="h6"
+                            marked="left"
+                            gutterBottom
+                            className={classes.footerHeading}
+                        >
                             Legal
                         </Typography>
                         <ul className={classes.list}>
                             <li className={classes.listItem}>
-                                <MuiLink component={Link} to="/terms">
-                                    Terms
+                                <MuiLink component={Link} to="/vission">
+                                    Vission &amp; Mission
                                 </MuiLink>
                             </li>
                             <li className={classes.listItem}>
                                 <MuiLink component={Link} to="/privacy">
-                                    Privacy
+                                    Privacy &amp; policy
                                 </MuiLink>
                             </li>
                         </ul>
                     </Grid>
-
+                    <Grid item xs={12} sm={4} md={2}>
+                        <Typography
+                            variant="h6"
+                            marked="left"
+                            gutterBottom
+                            className={classes.footerHeading}
+                        >
+                            Others
+                        </Typography>
+                        <ul className={classes.list}>
+                            <li className={classes.listItem}>
+                                <MuiLink component={Link} to="/careers">
+                                    Careers
+                                </MuiLink>
+                            </li>
+                            <li className={classes.listItem}>
+                                <MuiLink component={Link} to="/brands">
+                                    Brands
+                                </MuiLink>
+                            </li>
+                        </ul>
+                    </Grid>
                     <Grid item xs={12}>
                         <Divider />
                         <Box className={classes.powerby}>
