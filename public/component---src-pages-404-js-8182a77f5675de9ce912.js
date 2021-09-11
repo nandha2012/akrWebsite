@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkAkr_textile_site=self.webpackChunkAkr_textile_site||[]).push([[883],{9616:function(e,t,n){n.r(t),n.d(t,{default:function(){return r}});var u=n(7294);function r(){return u.createElement("div",null,"404 Not Found")}}}]);
+//# sourceMappingURL=component---src-pages-404-js-8182a77f5675de9ce912.js.map

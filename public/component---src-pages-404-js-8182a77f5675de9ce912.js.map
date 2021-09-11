@@ -1,0 +1,1 @@
+{"version":3,"file":"component---src-pages-404-js-8182a77f5675de9ce912.js","mappings":"oLAEe,SAASA,IACtB,OAAO","sources":["webpack://Akr textile site/./src/pages/404.js"],"sourcesContent":["import React from \"react\"\n\nexport default function ErrorPage() {\n  return <div>404 Not Found</div>\n}\n"],"names":["ErrorPage"],"sourceRoot":""}
