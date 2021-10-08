@@ -1,12 +1,12 @@
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createTheme } from '@material-ui/core/styles'
 import { green, grey, red } from '@material-ui/core/colors'
 
-const rawTheme = createMuiTheme({
+const rawTheme = createTheme({
     palette: {
         primary: {
-            light: '#69696a',
-            main: '#302f2f',
-            dark: '#1e1e1f',
+            light: '#91eba5',
+            main: '#2bc44d',
+            dark: '#13421d',
         },
         secondary: {
             light: '#fff5f8',
@@ -26,6 +26,15 @@ const rawTheme = createMuiTheme({
             xLight: green[50],
             main: green[500],
             dark: green[700],
+        },
+        black: {
+            100: '#9c9a9a',
+            300: '#787777',
+            500: '#525252',
+            600: '#3b3b3b',
+            700: '#1f1f1f',
+            800: '#0d0d0d',
+            900: '#000000',
         },
     },
     typography: {

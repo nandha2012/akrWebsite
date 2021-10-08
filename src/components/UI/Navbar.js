@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'gatsby'
-import { AppBar, Box } from '@material-ui/core'
+import { AppBar, Box, Typography } from '@material-ui/core'
 import { useTheme, makeStyles } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import CssBaseline from '@material-ui/core/CssBaseline'
+import clsx from 'clsx'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
@@ -16,12 +17,23 @@ import IconButton from '@material-ui/core/IconButton'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import logoBorder from '../../assets/images/akr_logo.png'
 import logoText from '../../assets/images/akr_font.png'
+import { NavbarBrand } from 'react-bootstrap'
 const useStyles = makeStyles(theme => ({
     root: {
         color: theme.palette.common.white,
     },
+    AppBar: {
+        boxShadow: 'none',
+    },
+    appbarSolid: {
+        background: theme.palette.black[900],
+    },
+    appbartransparent: {
+        background: 'transparent',
+    },
     title: {
         fontSize: '1.4rem',
+        color: theme.palette.secondary.main,
     },
     toolbarMargin: {
         ...theme.mixins.toolbar,
@@ -58,13 +70,14 @@ const useStyles = makeStyles(theme => ({
     },
     tabRoot: {
         minWidth: 10,
+        color: theme.palette.common.white,
     },
     tabSecondary: {
         fontSize: '1rem',
-        color: theme.palette.secondary.main,
+        color: theme.palette.common.white,
     },
     drawer: {
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.primary.white,
         ...theme.typography.h6,
     },
     drawerItem: {
@@ -76,7 +89,7 @@ const useStyles = makeStyles(theme => ({
         padding: '.25em 1em',
     },
     drawerItemSecondary: {
-        color: theme.palette.secondary.main,
+        color: theme.palette.primary.main,
         textTransform: 'uppercase',
         fontSize: '1rem',
         fontWeight: 900,
@@ -96,6 +109,7 @@ const useStyles = makeStyles(theme => ({
         },
     },
     logoContainer: {
+        display: 'flex',
         position: 'absolute',
         left: '0',
         top: '0',
@@ -103,21 +117,47 @@ const useStyles = makeStyles(theme => ({
     logoText: {
         position: 'absolute',
         height: '20px',
-        top: '20px',
+        top: '2px',
         left: '130px',
         [theme.breakpoints.up('md')]: {
             position: 'relative',
 
             left: '-100px',
-            top: '1px',
+            top: '5px',
             height: '30px',
         },
+        color: theme.palette.success.light,
     },
 }))
 
 export default function Navbar() {
     const classes = useStyles()
     const theme = useTheme()
+    const [navBackGround, setNavBackground] = useState()
+    let navRef = React.useRef(null)
+    navRef = NavbarBrand
+
+    useEffect(() => {
+        console.log('inside use Effect')
+
+        const handleScroll = () => {
+            console.log('inside handle scroll')
+            let show = window.scrollY > 310
+            if (show) {
+                setNavBackground('appbarSolid')
+                console.log(show)
+            } else {
+                console.log(show)
+
+                setNavBackground('appbartransparent')
+            }
+        }
+        document.addEventListener('scroll', handleScroll, { passive: true })
+        return () => {
+            document.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
+
     const matchesXS = useMediaQuery(theme.breakpoints.down('xs'))
     const iOS =
         typeof navigator !== 'undefined' &&
@@ -210,7 +250,6 @@ export default function Navbar() {
                         aria-label="Sign In Button"
                         variant="h6"
                         underline="none"
-                        color="inherit"
                         disableRipple
                         classes={{ root: classes.tabRoot }}
                     />{' '}
@@ -222,7 +261,6 @@ export default function Navbar() {
                         aria-label="Sign In Button"
                         variant="h6"
                         underline="none"
-                        color="inherit"
                         disableRipple
                         classes={{ root: classes.tabRoot }}
                     />
@@ -234,7 +272,6 @@ export default function Navbar() {
                         aria-label="Sign In Button"
                         variant="h6"
                         underline="none"
-                        color="inherit"
                         disableRipple
                         classes={{ root: classes.tabRoot }}
                     />
@@ -246,7 +283,6 @@ export default function Navbar() {
                         aria-label="Sign In Button"
                         variant="h6"
                         underline="none"
-                        color="inherit"
                         disableRipple
                         classes={{ root: classes.tabRoot }}
                     />
@@ -268,8 +304,11 @@ export default function Navbar() {
 
     return (
         <>
-            <CssBaseline />
-            <AppBar>
+            {/* <CssBaseline /> */}
+            <AppBar
+                className={clsx(classes.AppBar, classes[navBackGround])}
+                position="fixed"
+            >
                 <Toolbar>
                     <div className={classes.left} />
                     <MuiLink
@@ -285,13 +324,18 @@ export default function Navbar() {
                                 src={logoBorder}
                                 className={classes.logoBorder}
                             />
-                            <img src={logoText} className={classes.logoText} />
+                            {/* <img src={logoText} className={classes.logoText} /> */}
+                            <Typography
+                                variant="h1"
+                                className={classes.logoText}
+                            >
+                                AKR
+                            </Typography>
                         </Box>
                     </MuiLink>
                     {matchesXS ? drawer : tabs}
                 </Toolbar>
             </AppBar>
-            <Toolbar />
         </>
     )
 }
