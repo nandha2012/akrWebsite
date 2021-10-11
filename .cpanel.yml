@@ -1,4 +1,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/akrtexti/public_html/
-    - /bin/cp -R public/* $DEPLOYPATH
+    -/bin/cp -R * $DEPLOYPATH
