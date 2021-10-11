@@ -1,108 +1,117 @@
-import { createMuiTheme } from "@material-ui/core/styles"
-import { green, grey, red } from "@material-ui/core/colors"
+import { createTheme } from '@material-ui/core/styles'
+import { green, grey, red } from '@material-ui/core/colors'
 
-const rawTheme = createMuiTheme({
-  palette: {
-    primary: {
-      light: "#69696a",
-      main: "#28282a",
-      dark: "#1e1e1f",
+const rawTheme = createTheme({
+    palette: {
+        primary: {
+            light: '#91eba5',
+            main: '#2bc44d',
+            dark: '#13421d',
+        },
+        secondary: {
+            light: '#fff5f8',
+            main: '#ff3366',
+            dark: '#e62958',
+        },
+        warning: {
+            main: '#ffc071',
+            dark: '#ffb25e',
+        },
+        error: {
+            xLight: red[50],
+            main: red[500],
+            dark: red[700],
+        },
+        success: {
+            xLight: green[50],
+            main: green[500],
+            dark: green[700],
+        },
+        black: {
+            100: '#9c9a9a',
+            300: '#787777',
+            500: '#525252',
+            600: '#3b3b3b',
+            700: '#1f1f1f',
+            800: '#0d0d0d',
+            900: '#000000',
+        },
     },
-    secondary: {
-      light: "#fff5f8",
-      main: "#ff3366",
-      dark: "#e62958",
+    typography: {
+        fontFamily: "'Work Sans', sans-serif",
+        fontSize: 14,
+        fontWeightLight: 300, // Work Sans
+        fontWeightRegular: 400, // Work Sans
+        fontWeightMedium: 700, // Roboto Condensed
+        fontFamilySecondary: "'Roboto Condensed', sans-serif",
     },
-    warning: {
-      main: "#ffc071",
-      dark: "#ffb25e",
-    },
-    error: {
-      xLight: red[50],
-      main: red[500],
-      dark: red[700],
-    },
-    success: {
-      xLight: green[50],
-      main: green[500],
-      dark: green[700],
-    },
-  },
-  typography: {
-    fontFamily: "'Work Sans', sans-serif",
-    fontSize: 14,
-    fontWeightLight: 300, // Work Sans
-    fontWeightRegular: 400, // Work Sans
-    fontWeightMedium: 700, // Roboto Condensed
-    fontFamilySecondary: "'Roboto Condensed', sans-serif",
-  },
 })
 
 const fontHeader = {
-  color: rawTheme.palette.text.primary,
-  fontWeight: rawTheme.typography.fontWeightMedium,
-  fontFamily: rawTheme.typography.fontFamilySecondary,
-  textTransform: "uppercase",
+    color: rawTheme.palette.text.primary,
+    fontWeight: rawTheme.typography.fontWeightMedium,
+    fontFamily: rawTheme.typography.fontFamilySecondary,
+    textTransform: 'uppercase',
 }
 
 const theme = {
-  ...rawTheme,
-  palette: {
-    ...rawTheme.palette,
-    background: {
-      ...rawTheme.palette.background,
-      default: rawTheme.palette.common.white,
-      placeholder: grey[200],
+    ...rawTheme,
+    palette: {
+        ...rawTheme.palette,
+        background: {
+            ...rawTheme.palette.background,
+            default: rawTheme.palette.common.white,
+            placeholder: grey[200],
+        },
     },
-  },
-  typography: {
-    ...rawTheme.typography,
-    fontHeader,
-    h1: {
-      ...rawTheme.typography.h1,
-      ...fontHeader,
-      letterSpacing: 0,
-      fontSize: 60,
+    typography: {
+        ...rawTheme.typography,
+        fontHeader,
+        h1: {
+            ...rawTheme.typography.h1,
+            ...fontHeader,
+            letterSpacing: 0,
+            fontSize: 60,
+        },
+        h2: {
+            ...rawTheme.typography.h2,
+            ...fontHeader,
+            fontSize: 48,
+        },
+        h3: {
+            ...rawTheme.typography.h3,
+            ...fontHeader,
+            fontSize: 42,
+        },
+        h4: {
+            ...rawTheme.typography.h4,
+            ...fontHeader,
+            fontSize: 36,
+        },
+        h5: {
+            ...rawTheme.typography.h5,
+            fontSize: 20,
+            fontWeight: rawTheme.typography.fontWeightLight,
+        },
+        h6: {
+            ...rawTheme.typography.h6,
+            ...fontHeader,
+            fontSize: 18,
+        },
+        subtitle1: {
+            ...rawTheme.typography.subtitle1,
+            fontSize: 18,
+        },
+        body1: {
+            ...rawTheme.typography.body2,
+            fontWeight: rawTheme.typography.fontWeightRegular,
+            fontSize: 16,
+        },
+        body2: {
+            ...rawTheme.typography.body1,
+            fontSize: 14,
+        },
     },
-    h2: {
-      ...rawTheme.typography.h2,
-      ...fontHeader,
-      fontSize: 48,
-    },
-    h3: {
-      ...rawTheme.typography.h3,
-      ...fontHeader,
-      fontSize: 42,
-    },
-    h4: {
-      ...rawTheme.typography.h4,
-      ...fontHeader,
-      fontSize: 36,
-    },
-    h5: {
-      ...rawTheme.typography.h5,
-      fontSize: 20,
-      fontWeight: rawTheme.typography.fontWeightLight,
-    },
-    h6: {
-      ...rawTheme.typography.h6,
-      ...fontHeader,
-      fontSize: 18,
-    },
-    subtitle1: {
-      ...rawTheme.typography.subtitle1,
-      fontSize: 18,
-    },
-    body1: {
-      ...rawTheme.typography.body2,
-      fontWeight: rawTheme.typography.fontWeightRegular,
-      fontSize: 16,
-    },
-    body2: {
-      ...rawTheme.typography.body1,
-      fontSize: 14,
-    },
-  },
 }
 
 export default theme
