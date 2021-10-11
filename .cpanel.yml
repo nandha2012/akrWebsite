@@ -1,4 +1,4 @@
 deployment:
-  tasks:
-    - export DEPLOYPATH=/home/tdsfubxpu1rv/public_html/
-    -/bin/cp -R * $DEPLOYPATH
+    tasks:
+        - export DEPLOYPATH=/home/tdsfubxpu1rv/public_html/
+        - /bin/cp -R public/* $DEPLOYPATH
