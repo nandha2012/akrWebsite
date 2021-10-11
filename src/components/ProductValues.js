@@ -19,13 +19,13 @@ const styles = theme => ({
     listRoot: {},
     container: {
         marginTop: theme.spacing(5),
-        marginBottom: theme.spacing(30),
+        marginBottom: theme.spacing(10),
         display: 'flex',
         flexDirection: 'column',
         position: 'relative',
     },
     subHeading: {
-        marginBottom: theme.spacing(3),
+        marginBottom: theme.spacing(8),
         color: theme.palette.black[600],
     },
     item: {
@@ -54,9 +54,16 @@ function ProductValues(props) {
     return (
         <section className={classes.root}>
             <Container className={classes.container}>
-                <Typography variant="h3" className={classes.subHeading}>
+                <Typography
+                    variant="h3"
+                    marked="center"
+                    align="center"
+                    component="h2"
+                    className={classes.subHeading}
+                >
                     Products
                 </Typography>
+
                 <Grid container spacing={5}>
                     <Grid item xs={12} md={4}>
                         <div className={classes.item}>

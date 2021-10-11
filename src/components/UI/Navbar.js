@@ -5,7 +5,6 @@ import { useTheme, makeStyles } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
-import CssBaseline from '@material-ui/core/CssBaseline'
 import clsx from 'clsx'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
@@ -16,7 +15,6 @@ import MenuIcon from '@material-ui/icons/Menu'
 import IconButton from '@material-ui/core/IconButton'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import logoBorder from '../../assets/images/akr_logo.png'
-import logoText from '../../assets/images/akr_font.png'
 import { NavbarBrand } from 'react-bootstrap'
 const useStyles = makeStyles(theme => ({
     root: {
@@ -24,6 +22,7 @@ const useStyles = makeStyles(theme => ({
     },
     AppBar: {
         boxShadow: 'none',
+        background: 'transparent',
     },
     appbarSolid: {
         background: theme.palette.black[900],
@@ -138,17 +137,11 @@ export default function Navbar() {
     navRef = NavbarBrand
 
     useEffect(() => {
-        console.log('inside use Effect')
-
         const handleScroll = () => {
-            console.log('inside handle scroll')
             let show = window.scrollY > 310
             if (show) {
                 setNavBackground('appbarSolid')
-                console.log(show)
             } else {
-                console.log(show)
-
                 setNavBackground('appbartransparent')
             }
         }

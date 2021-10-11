@@ -82,7 +82,7 @@ function ProductHero(props) {
             }
         >
             <Carousel>
-                <Carousel.Item>
+                <Carousel.Item interval={3000}>
                     <div
                         className={classes.carosalItem}
                         style={{
@@ -105,7 +105,8 @@ function ProductHero(props) {
                         </div>
                     </div>
                 </Carousel.Item>
-                <Carousel.Item>
+
+                <Carousel.Item interval={3000}>
                     <div
                         className={classes.carosalItem}
                         style={{
@@ -127,7 +128,8 @@ function ProductHero(props) {
                         </div>
                     </div>
                 </Carousel.Item>
-                <Carousel.Item>
+
+                <Carousel.Item interval={3000}>
                     <div
                         className={classes.carosalItem}
                         style={{
