@@ -6,16 +6,19 @@ const rawTheme = createTheme({
         primary: {
             light: '#91eba5',
             main: '#2bc44d',
-            dark: '#13421d',
+            dark: '#103b19',
         },
         secondary: {
-            light: '#fff5f8',
-            main: '#ff3366',
-            dark: '#e62958',
+            light: '#4ea9e6',
+            main: '#194b8a',
+            dark: '#1d3757',
         },
+
         warning: {
             main: '#ffc071',
             dark: '#ffb25e',
+            100: '#c22b3c',
+            400: '#800f1c',
         },
         error: {
             xLight: red[50],

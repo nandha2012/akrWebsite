@@ -10,11 +10,12 @@ import ProductCurvyLines from '../assets/images/productCurvyLines.png'
 import ProductHowItWorks1 from '../assets/images/pr1.jpg'
 import ProductHowItWorks2 from '../assets/images/pr2.jpg'
 import ProductHowItWorks3 from '../assets/images/printng.jpg'
+import Image from '../components/Utils/images.js'
 
 const styles = theme => ({
     root: {
         display: 'flex',
-        backgroundColor: theme.palette.secondary.light,
+        // backgroundColor: theme.palette.secondary.light,
         overflow: 'hidden',
     },
     container: {
@@ -30,6 +31,8 @@ const styles = theme => ({
         flexDirection: 'column',
         alignItems: 'center',
         padding: theme.spacing(0, 5),
+        width: '400px',
+        height: '300px',
     },
     title: {
         marginBottom: theme.spacing(14),
@@ -41,10 +44,11 @@ const styles = theme => ({
         fontWeight: theme.typography.fontWeightMedium,
     },
     image: {
-        height: 55,
-        marginTop: theme.spacing(4),
-        marginBottom: theme.spacing(4),
+        width: '100%',
+        height: '100%',
+        margin: theme.spacing(0.5),
     },
+
     curvyLines: {
         pointerEvents: 'none',
         position: 'absolute',
@@ -55,7 +59,14 @@ const styles = theme => ({
         marginTop: theme.spacing(8),
     },
 })
-
+const images = [
+    { src: 'pr2.jpg', alt: 'production_1', description: 'Production' },
+    { src: 'ga3.jpg', alt: 'garment_3', description: 'Garment' },
+    { src: 'ga4.jpg', alt: 'garment_4', description: 'Garment' },
+    { src: 'ga5.jpg', alt: 'garment_5', description: 'Garment' },
+    { src: 'kn2.jpg', alt: 'knitting_2', description: 'Knitting' },
+    { src: 'kn3.jpg', alt: 'knitting_3', description: 'Knitting' },
+]
 function ProductHowItWorks(props) {
     const { classes } = props
 
@@ -73,28 +84,29 @@ function ProductHowItWorks(props) {
                     className={classes.title}
                     component="h2"
                 >
-                    How it works
+                    infrastructure
                 </Typography>
                 <div>
                     <Grid container spacing={5}>
-                        <Grid item xs={12} md={4}>
+                        {images.map(image => (
+                            <Grid item xs={12} md={4}>
+                                <div className={classes.item}>
+                                    <Image
+                                        src={image.src}
+                                        alt={image.alt}
+                                        className={classes.image}
+                                    />
+                                    <Typography variant="h5" align="center">
+                                        {image.description}
+                                    </Typography>
+                                </div>
+                            </Grid>
+                        ))}
+
+                        {/* <Grid item xs={12} md={4}>
                             <div className={classes.item}>
-                                <div className={classes.number}>1.</div>
-                                <img
-                                    src={ProductHowItWorks1}
-                                    alt="suitcase"
-                                    className={classes.image}
-                                />
-                                <Typography variant="h5" align="center">
-                                    Appointment every Wednesday 9am.
-                                </Typography>
-                            </div>
-                        </Grid>
-                        <Grid item xs={12} md={4}>
-                            <div className={classes.item}>
-                                <div className={classes.number}>2.</div>
-                                <img
-                                    src={ProductHowItWorks2}
+                                <Image
+                                    src="kn3.jpg"
                                     alt="graph"
                                     className={classes.image}
                                 />
@@ -106,9 +118,8 @@ function ProductHowItWorks(props) {
                         </Grid>
                         <Grid item xs={12} md={4}>
                             <div className={classes.item}>
-                                <div className={classes.number}>3.</div>
-                                <img
-                                    src={ProductHowItWorks3}
+                                <Image
+                                    src="kn2.jpg"
                                     alt="clock"
                                     className={classes.image}
                                 />
@@ -119,19 +130,9 @@ function ProductHowItWorks(props) {
                                     {'Your Sundays will no longer be alike.'}
                                 </Typography>
                             </div>
-                        </Grid>
+                        </Grid> */}
                     </Grid>
                 </div>
-                <Button
-                    color="secondary"
-                    size="large"
-                    variant="contained"
-                    className={classes.button}
-                    component={Link}
-                    to="/register"
-                >
-                    Get started
-                </Button>
             </Container>
         </section>
     )

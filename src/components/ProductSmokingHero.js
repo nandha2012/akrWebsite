@@ -4,8 +4,8 @@ import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
 import { withStyles } from '@material-ui/core/styles'
 import Typography from './Utils/Typography'
-import ProductBuoy from '../assets/images/printing_1.jpg'
-
+// import ProductBuoy from '../assets/images/printing_1.jpg'
+import Image from '../components/Utils/images'
 const styles = theme => ({
     root: {
         display: 'flex',
@@ -27,6 +27,15 @@ const styles = theme => ({
     buoy: {
         width: 60,
     },
+    image: {
+        [theme.breakpoints.down('sm')]: {
+            width: '40%',
+            height: '40%',
+        },
+        width: '70%',
+        height: '50%',
+        margin: theme.spacing(0.5),
+    },
 })
 
 function ProductSmokingHero(props) {
@@ -36,13 +45,18 @@ function ProductSmokingHero(props) {
         <Container className={classes.root} component="section">
             <Button className={classes.button}>
                 <Typography variant="h4" component="span">
-                    Got any questions? Need help?
+                    Our Journey
                 </Typography>
             </Button>
-            <Typography variant="subtitle1" className={classes.link}>
-                We are here to help. Get in touch!
-            </Typography>
-            <img src={ProductBuoy} className={classes.buoy} alt="buoy" />
+            <Typography
+                variant="subtitle1"
+                className={classes.link}
+            ></Typography>
+            <Image
+                src="miles.png"
+                alt="Sunset Image"
+                className={classes.image}
+            />
         </Container>
     )
 }

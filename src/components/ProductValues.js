@@ -14,7 +14,7 @@ const styles = theme => ({
     root: {
         display: 'flex',
         overflow: 'hidden',
-        backgroundColor: theme.palette.secondary.light,
+        // backgroundColor: theme.palette.secondary.light,
     },
     listRoot: {},
     container: {

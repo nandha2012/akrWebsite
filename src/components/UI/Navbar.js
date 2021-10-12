@@ -14,6 +14,7 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import MenuIcon from '@material-ui/icons/Menu'
 import IconButton from '@material-ui/core/IconButton'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
+
 import logoBorder from '../../assets/images/akr_logo.png'
 import { NavbarBrand } from 'react-bootstrap'
 const useStyles = makeStyles(theme => ({
@@ -22,13 +23,17 @@ const useStyles = makeStyles(theme => ({
     },
     AppBar: {
         boxShadow: 'none',
-        background: 'transparent',
+        background: theme.palette.grey[900],
+        opacity: 0.5,
+        paddingBottom: theme.spacing(2),
     },
     appbarSolid: {
         background: theme.palette.black[900],
+        opacity: 1,
     },
     appbartransparent: {
         background: 'transparent',
+        opacity: 1,
     },
     title: {
         fontSize: '1.4rem',
@@ -66,6 +71,9 @@ const useStyles = makeStyles(theme => ({
         '& .MuiTab-Root': {
             minWidth: 10,
         },
+        '&:hover': {
+            color: theme.palette.warning[100],
+        },
     },
     tabRoot: {
         minWidth: 10,
@@ -80,7 +88,7 @@ const useStyles = makeStyles(theme => ({
         ...theme.typography.h6,
     },
     drawerItem: {
-        color: theme.palette.secondary.light,
+        color: theme.palette.primary.main,
         textTransform: 'uppercase',
         fontSize: '1rem',
         fontWeight: 500,
@@ -88,7 +96,7 @@ const useStyles = makeStyles(theme => ({
         padding: '.25em 1em',
     },
     drawerItemSecondary: {
-        color: theme.palette.primary.main,
+        color: theme.palette.secondary.dark,
         textTransform: 'uppercase',
         fontSize: '1rem',
         fontWeight: 900,
@@ -130,19 +138,23 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function Navbar() {
+    const [navBackGround, setNavBackground] = useState()
+
     const classes = useStyles()
     const theme = useTheme()
-    const [navBackGround, setNavBackground] = useState()
     let navRef = React.useRef(null)
     navRef = NavbarBrand
-
     useEffect(() => {
         const handleScroll = () => {
             let show = window.scrollY > 310
             if (show) {
                 setNavBackground('appbarSolid')
             } else {
-                setNavBackground('appbartransparent')
+                if (window.location.pathname !== '/') {
+                    setNavBackground('appbarSolid')
+                } else {
+                    setNavBackground('appbartransparent')
+                }
             }
         }
         document.addEventListener('scroll', handleScroll, { passive: true })
@@ -175,8 +187,8 @@ export default function Navbar() {
                         divider
                         button
                         component={Link}
-                        to="/login"
-                        title="Link to Login Page"
+                        to="/"
+                        title="Link to Home Page"
                         onClick={() => {
                             setOpenDrawer(false)
                         }}
@@ -185,15 +197,15 @@ export default function Navbar() {
                             className={classes.drawerItem}
                             disableTypography
                         >
-                            Sign In new
+                            Home
                         </ListItemText>
                     </ListItem>
                     <ListItem
                         divider
                         button
                         component={Link}
-                        to="/register"
-                        title="Link to Register Page"
+                        to="/"
+                        title="Link to Home Page"
                         style={{ display: 'block' }}
                         onClick={() => {
                             setOpenDrawer(false)
@@ -203,7 +215,43 @@ export default function Navbar() {
                             className={`${classes.drawerItem}, ${classes.drawerItemSecondary}`}
                             disableTypography
                         >
-                            Sign Up
+                            our Vission
+                        </ListItemText>
+                    </ListItem>
+                    <ListItem
+                        divider
+                        button
+                        component={Link}
+                        to="/"
+                        title="Link to Home Page"
+                        style={{ display: 'block' }}
+                        onClick={() => {
+                            setOpenDrawer(false)
+                        }}
+                    >
+                        <ListItemText
+                            className={`${classes.drawerItem}, ${classes.drawerItemSecondary}`}
+                            disableTypography
+                        >
+                            Clients
+                        </ListItemText>
+                    </ListItem>
+                    <ListItem
+                        divider
+                        button
+                        component={Link}
+                        to="/"
+                        title="Link to Home Page"
+                        style={{ display: 'block' }}
+                        onClick={() => {
+                            setOpenDrawer(false)
+                        }}
+                    >
+                        <ListItemText
+                            className={`${classes.drawerItem}, ${classes.drawerItemSecondary}`}
+                            disableTypography
+                        >
+                            Careers
                         </ListItemText>
                     </ListItem>
                 </List>
@@ -216,7 +264,8 @@ export default function Navbar() {
                     disableRipple
                 >
                     <MenuIcon
-                        style={{ color: theme.palette.secondary.light }}
+                        style={{ color: theme.palette.primary.light }}
+                        fontSize="large"
                     />
                 </IconButton>
             </div>
@@ -249,8 +298,8 @@ export default function Navbar() {
                     <Tab
                         className={`${classes.tab}`}
                         component={Link}
-                        to="/"
-                        label="products"
+                        to="/vission"
+                        label="our Vission"
                         aria-label="Sign In Button"
                         variant="h6"
                         underline="none"
@@ -261,7 +310,7 @@ export default function Navbar() {
                         className={`${classes.tab}`}
                         component={Link}
                         to="/"
-                        label="certificates"
+                        label="Clients"
                         aria-label="Sign In Button"
                         variant="h6"
                         underline="none"
@@ -271,15 +320,15 @@ export default function Navbar() {
                     <Tab
                         className={`${classes.tab}`}
                         component={Link}
-                        to="/login"
-                        label="Sign In"
+                        to="/careers"
+                        label="Careers"
                         aria-label="Sign In Button"
                         variant="h6"
                         underline="none"
                         disableRipple
                         classes={{ root: classes.tabRoot }}
                     />
-                    <Tab
+                    {/* <Tab
                         className={`${classes.tab}, ${classes.tabSecondary}`}
                         classes={{ root: classes.tabRoot }}
                         component={Link}
@@ -289,7 +338,7 @@ export default function Navbar() {
                         variant="h6"
                         underline="none"
                         disableRipple
-                    />
+                    /> */}
                 </Tabs>
             </div>
         </>

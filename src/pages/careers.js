@@ -2,12 +2,13 @@ import React from 'react'
 import Layout from '../components/UI/Layout'
 import MuiLink from '@material-ui/core/Link'
 import Container from '@material-ui/core/Container'
-import Box from '@material-ui/core/Box'
+import { Box, Toolbar } from '@material-ui/core'
 import Typography from '../components/Utils/Typography'
 
 export default function CareerPage() {
     return (
         <Layout>
+            <Toolbar />
             <Container>
                 <Box mt={7} mb={12}>
                     <Typography
